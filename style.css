@@ -225,7 +225,8 @@ img {
   width: clamp(260px, 40vw, 500px);
   height: auto;
   z-index: 2;
-  overflow: hidden
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 /* ---------- RESPONSIVE ---------- */
