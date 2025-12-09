@@ -216,7 +216,7 @@ img {
 
 /* Plumber */
 .plumber {
-  min-width: 400px;
+  min-width: 360px;
   position: absolute;
   bottom: 0;
   width: clamp(260px, 40vw, 500px);
