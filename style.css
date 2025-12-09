@@ -3,6 +3,9 @@
   --secondary-clr: #ECF8FF;
   --third-clr: #0E84C4;
   --fourth-clr: #E5312D;
+
+  --base-font: 'Roboto', sans-serif;
+  --script-font: 'Science Gothic', sans-serif;
 }
 
 
@@ -23,7 +26,7 @@ body {
 
 /* ---------- NAVBAR ---------- */
 .navbar {
-  font-family: 'Roboto';
+  font-family: var(--base-font);
   position: fixed;
   top: 30px;
   left: 50%;
@@ -37,7 +40,7 @@ body {
   justify-content: center;
   gap: 16px;
   z-index: 999;
-  box-shadow: 0px 0px 10px 1px #16212B;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 25%);
 }
 
 .logo {
@@ -153,6 +156,7 @@ body {
   grid-template-columns: 1fr 1.2fr;
   height: 100dvh;
   position: relative;
+  overflow-x: hidden;
 }
 
 /* Sinistra */
@@ -170,7 +174,7 @@ body {
 
 .hero-left h1 {
   margin-top: 40px;
-  font-family: 'Science Gothic';
+  font-family: var(--script-font);
   font-size: clamp(5rem, 8vw, 7.5rem);
   margin-bottom: 10px;
   /* text-align: center; */
@@ -192,7 +196,7 @@ body {
   font-size: 30px;
   font-weight: 600;
   color: var(--third-clr);
-  font-family: 'Science Gothic';
+  font-family: var(--script-font);
   text-align: left;
 }
 
