@@ -120,8 +120,8 @@ body {
 .menu a:hover::before {
   width: 200px;
   height: 200px;
-  animation: ripple78 1s ease-out infinite;
-  opacity: 1;
+  animation: ripple78 3s ease-out /*infinite*/;
+  /* opacity: 1; */
 }
 
 /* Ripple più delicato sulla CTA */
@@ -168,11 +168,11 @@ body {
 }
 
 .hero-left h1 {
-  margin-top: 20px;
+  margin-top: 40px;
   font-family: 'Science Gothic';
   font-size: clamp(5rem, 8vw, 7.5rem);
   margin-bottom: 10px;
-  transform: translateX(-10px);
+  /* transform: translateX(-10px); */
 }
 
 .description {
@@ -216,6 +216,7 @@ img {
 
 /* Plumber */
 .plumber {
+  min-width: 400px;
   position: absolute;
   bottom: 0;
   width: clamp(260px, 40vw, 500px);
@@ -249,7 +250,6 @@ img {
     min-height: 400px;
   }
 
-  .bg-shape,
   .plumber {
     right: 50%;
     transform: translateX(50%);
