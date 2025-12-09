@@ -1,0 +1,268 @@
+:root {
+  --primary-clr: #16212B;
+  --secondary-clr: #ECF8FF;
+  --third-clr: #0E84C4;
+  --fourth-clr: #E5312D;
+}
+
+@font-face {
+  font-family: "Science Gothic";
+  src: url("Assets/Font/ScienceGothic-VariableFont_CTRS\,slnt\,wdth\,wght.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--secondary-clr);
+  color: var(--primary-clr);
+  overflow-x: hidden;
+  line-height: 1;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  font-family: 'Roboto';
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  padding: 6px;
+  background: var(--primary-clr);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 999;
+}
+
+.logo {
+  width: 38px;
+  height: 38px;
+  background: var(--secondary-clr);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  font-weight: bold;
+  color: var(--primary-clr);
+}
+
+.menu {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* TUTTI I LINK COME BOTTONI */
+.menu a {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 16px;
+  border-radius: 20px;
+
+  background: transparent;
+  color: var(--secondary-clr);
+  font-size: 14px;
+  text-decoration: none;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover base */
+.menu a:hover {
+  background: rgba(236, 248, 255, 0.15);
+}
+
+.menu .cta:hover {
+  color: var(--secondary-clr);
+}
+
+/* CTA mantiene più contrasto */
+.menu .cta {
+  background: var(--secondary-clr);
+  color: var(--primary-clr);
+  font-size: 16px;
+}
+
+/* ---------- RIPPLE EFFECT ---------- */
+.menu a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+
+  background: rgba(166, 166, 166, 0.8);
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.menu a:hover::before {
+  width: 200px;
+  height: 200px;
+  animation: ripple78 1s ease-out infinite;
+  opacity: 1;
+}
+
+/* Ripple più delicato sulla CTA */
+.menu .cta::before {
+  background: rgba(14, 132, 196, 0.35);
+  color: var();
+}
+
+/* Animazione */
+@keyframes ripple78 {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+
+/* ---------- HERO LAYOUT ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  height: 100dvh;
+  position: relative;
+}
+
+/* Sinistra */
+.hero-left {
+  padding-left: 120px;
+  padding-top: 100px;
+  z-index: 2;
+}
+
+.title-span {
+  color: var(--fourth-clr);
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.hero-left h1 {
+  margin-top: 20px;
+  font-family: 'Science Gothic Semibold';
+  font-size: clamp(5rem, 8vw, 7.5rem);
+  margin-bottom: 10px;
+  transform: translateX(-10px);
+}
+
+.description {
+  max-width: 420px;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--primary-clr);
+}
+/*prova github*/
+
+.hero-left h3 {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--third-clr);
+  font-family: 'Science Gothic Semibold';
+}
+
+/* ---------- IMMAGINI ---------- */
+.hero-right {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  display: block;
+}
+
+/* Nuvola */
+.bg-shape {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 85%;
+  max-width: none;
+  height: auto;
+  z-index: 1;
+}
+
+/* Plumber */
+.plumber {
+  position: absolute;
+  bottom: 0;
+  width: clamp(260px, 40vw, 500px);
+  height: auto;
+  z-index: 2;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+  .hero-left {
+    padding-left: 60px;
+  }
+
+  .plumber {
+    right: 0;
+    width: 50vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-left {
+    padding: 60px 30px 40px;
+    text-align: center;
+  }
+
+  .hero-right {
+    min-height: 400px;
+  }
+
+  .bg-shape,
+  .plumber {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
