@@ -5,6 +5,8 @@
   --third-clr: #0E84C4;
   --fourth-clr: #E5312D;
 
+  --third-clr-hover: rgba(14, 132, 196, 0.8);
+
   --base-font: 'Roboto', sans-serif;
   --script-font: 'Science Gothic', sans-serif;
 }
@@ -21,6 +23,26 @@ body{
   font-family:var(--base-font);
 }
 
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--primary-clr);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--third-clr); 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--third-clr-hover); 
+}
+
+::selection{
+  background:var(--third-clr);
+  color:var(--secondary-clr);
+}
+
 img{display:block; max-width:100%; height:auto;}
 
 .title-span{ color:var(--fourth-clr); font-family:inherit; font-size:inherit; }
@@ -30,6 +52,7 @@ h1{
   margin-bottom:10px;
   font-family:var(--script-font);
   font-size:clamp(5rem,8vw,7.5rem);
+  user-select: none;
 }
 
 p{
@@ -47,6 +70,13 @@ h6{
   color:var(--third-clr);
   font-family:var(--script-font);
   text-align:left;
+  line-height: 2.5rem;
+  user-select: none;
+}
+
+main {
+  height:100dvh;
+  width: 100vw;
 }
 
 /* NAVBAR */
@@ -155,11 +185,16 @@ h6{
 
 /* ---------- HERO (layout principale) ---------- */
 .hero{
+  height: 100dvh;
   display:grid;
   grid-template-columns:1fr 1.2fr;
-  height:100dvh;
   position:relative;
-  overflow-x:hidden;
+  overflow:hidden;
+}
+
+.hero.reversed {
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
 }
 
 /* lato sinistro contenuti */
@@ -167,6 +202,10 @@ h6{
   padding-left:120px;
   padding-top:100px;
   z-index:2;
+}
+.hero.reversed .hero-left{
+  padding-left:0;
+  padding-right:120px;
 }
 
 /* lato destro immagini */
@@ -186,6 +225,11 @@ h6{
   height:auto;
   z-index:1;
 }
+.hero.reversed .bg-shape{
+  left:0;
+  right:auto;
+  transform: scaleX(-1)
+}
 
 /* IMMAGINE PLUMBER */
 .plumber{
@@ -201,15 +245,17 @@ h6{
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:1024px){
   .hero-left{ padding-left:60px; }
+  .hero.reversed .hero-left{ padding-left:0; padding-right:60px;}
   .plumber{ right:0; width:50vw; }
 }
 
 @media (max-width:768px){
   .hero{ grid-template-columns:1fr; }
-  .hero-left{
+  .hero-left, .hero.reversed .hero-left{
     padding:60px 30px 40px;
     text-align:center;
   }
+
   .hero-right{ min-height:400px; }
   .plumber{
     right:50%;
