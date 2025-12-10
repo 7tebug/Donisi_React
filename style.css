@@ -1,4 +1,5 @@
-:root {
+/* VARIABILI */
+:root{
   --primary-clr: #16212B;
   --secondary-clr: #ECF8FF;
   --third-clr: #0E84C4;
@@ -8,276 +9,212 @@
   --script-font: 'Science Gothic', sans-serif;
 }
 
-
-* {
-  box-sizing: border-box;
+/* ---------- RESET/BASE ---------- */
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0;
+  background:var(--secondary-clr);
+  color:var(--primary-clr);
+  overflow-x:hidden;
+  line-height:1;
+  font-family:var(--base-font);
 }
 
-html, body {
-  height: 100%;
-}
+/* Ensure images behave predictably */
+img{display:block; max-width:100%; height:auto;}
 
-body {
-  background-color: var(--secondary-clr);
-  color: var(--primary-clr);
-  overflow-x: hidden;
-  line-height: 1;
-}
-
-/* ---------- NAVBAR ---------- */
-.navbar {
-  font-family: var(--base-font);
-  position: fixed;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: fit-content;
-  padding: 6px;
-  background: var(--primary-clr);
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  z-index: 999;
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  top:30px;
+  left:50%;
+  transform:translateX(-50%);
+  width:fit-content;
+  padding:6px;
+  background:var(--primary-clr);
+  border-radius:50px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  z-index:999;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 25%);
 }
 
-.logo {
-  width: 38px;
-  height: 38px;
-  background: var(--secondary-clr);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2px;
-  font-weight: bold;
-  color: var(--primary-clr);
+/* LOGO */
+.logo{
+  width:38px;
+  height:38px;
+  background:var(--secondary-clr);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2px;
+  font-weight:bold;
+  color:var(--primary-clr);
+}
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
 }
 
-.menu {
-  display: flex;
-  gap: 12px;
-  align-items: center;
+/* MENU */
+.menu{
+  display:flex;
+  gap:12px;
+  align-items:center;
 }
 
-/* TUTTI I LINK COME BOTTONI */
-.menu a {
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 5px 16px;
-  border-radius: 20px;
-
-  background: transparent;
-  color: var(--secondary-clr);
-  font-size: 14px;
-  text-decoration: none;
-
-  position: relative;
-  overflow: hidden;
-  z-index: 0;
-
-  transition: background 0.3s ease, color 0.3s ease;
+/* LINK BUTTON */
+.menu a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:38px;
+  padding:5px 16px;
+  border-radius:20px;
+  background:transparent;
+  color:var(--secondary-clr);
+  font-size:14px;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  z-index:0;
+  transition:background .3s ease,color .3s ease;
 }
 
-/* Hover base */
-.menu a:hover {
-  background: rgba(236, 248, 255, 0.15);
-}
+.menu a:hover{ background:rgba(236,248,255,0.15); }
 
-.menu .cta:hover {
-  color: var(--secondary-clr);
-}
-
-/* CTA mantiene più contrasto */
-.menu .cta {
-  background: var(--secondary-clr);
-  color: var(--primary-clr);
-  font-size: 16px;
+/* CTA differenziata */
+.menu .cta{
+  background:var(--secondary-clr);
+  color:var(--primary-clr);
+  font-size:16px;
 }
 
 /* ---------- RIPPLE EFFECT ---------- */
-.menu a::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 0;
-  height: 0;
-
-  background: rgba(166, 166, 166, 0.8);
-  border-radius: 50%;
-
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+/* pseudo-element semplice per effetto "ripple" al passaggio */
+.menu a::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:0;
+  height:0;
+  background:rgba(166,166,166,0.8);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  z-index:1;
+  opacity:0;
+  transition:opacity .3s ease-in-out;
+}
+.menu a:hover::before{
+  width:200px;
+  height:200px;
+  animation:ripple78 3s ease-out;
+}
+.menu .cta::before{
+  background:rgba(14,132,196,0.35);
 }
 
-.menu a:hover::before {
-  width: 200px;
-  height: 200px;
-  animation: ripple78 3s ease-out /*infinite*/;
-  /* opacity: 1; */
+/* animazione ripple */
+@keyframes ripple78{
+  0%{width:0;height:0;opacity:1;}
+  100%{width:200px;height:200px;opacity:0;}
 }
 
-/* Ripple più delicato sulla CTA */
-.menu .cta::before {
-  background: rgba(14, 132, 196, 0.35);
-  color: var();
+/* ---------- HERO (layout principale) ---------- */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  height:100dvh;
+  position:relative;
+  overflow-x:hidden;
 }
 
-/* Animazione */
-@keyframes ripple78 {
-  0% {
-    width: 0;
-    height: 0;
-    opacity: 1;
-  }
-
-  100% {
-    width: 200px;
-    height: 200px;
-    opacity: 0;
-  }
+/* lato sinistro contenuti */
+.hero-left{
+  padding-left:120px;
+  padding-top:100px;
+  z-index:2;
 }
 
+/* titolo */
+.title-span{ color:var(--fourth-clr); font-family:inherit; font-size:inherit; }
 
-/* --------- HERO LAYOUT --------- */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  height: 100dvh;
-  position: relative;
-  overflow-x: hidden;
+.hero-left h1{
+  margin-top:40px;
+  margin-bottom:10px;
+  font-family:var(--script-font);
+  font-size:clamp(5rem,8vw,7.5rem);
 }
 
-/* Sinistra */
-.hero-left {
-  padding-left: 120px;
-  padding-top: 100px;
-  z-index: 2;
+.description{
+  max-width:420px;
+  font-size:16px;
+  line-height:1.5;
+  margin:30px 0;
+  color:var(--primary-clr);
+  text-align:left;
 }
 
-.title-span {
-  color: var(--fourth-clr);
-  font-family: inherit;
-  font-size: inherit;
+.hero-left h3{
+  font-size:30px;
+  font-weight:600;
+  color:var(--third-clr);
+  font-family:var(--script-font);
+  text-align:left;
 }
 
-.hero-left h1 {
-  margin-top: 40px;
-  font-family: var(--script-font);
-  font-size: clamp(5rem, 8vw, 7.5rem);
-  margin-bottom: 10px;
-  /* text-align: center; */
-  /* transform: translateX(-10px); */
+/* lato destro immagini */
+.hero-right{
+  position:relative;
+  width:100%;
+  height:100%;
 }
 
-.description {
-  max-width: 420px;
-  font-size: 16px;
-  line-height: 1.5;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  color: var(--primary-clr);
-  text-align: left;
-}
-/*prova github*/
-
-.hero-left h3 {
-  font-size: 30px;
-  font-weight: 600;
-  color: var(--third-clr);
-  font-family: var(--script-font);
-  text-align: left;
+/* NUVOLA */
+.bg-shape{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:95%;
+  max-width:none;
+  height:auto;
+  z-index:1;
 }
 
-/* ---------- IMMAGINI ---------- */
-.hero-right {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-img {
-  display: block;
-}
-
-/* Nuvola */
-.bg-shape {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 95%;
-  max-width: none;
-  height: auto;
-  z-index: 1;
-}
-
-/* Plumber */
-.plumber {
-  min-width: 460px;
-  position: absolute;
-  bottom: 0;
-  width: clamp(460px, 40vw, 500px);
-  height: auto;
-  z-index: 2;
-  overflow: hidden;
-  overflow-y: scroll;
+/* IMMAGINE PLUMBER */
+.plumber{
+  min-width:460px;
+  position:absolute;
+  bottom:0;
+  width:clamp(460px,40vw,500px);
+  height:auto;
+  z-index:2;
+  /* overflow interno non necessario per immagine, rimosso */
 }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 1024px) {
-  .hero-left {
-    padding-left: 60px;
-  }
-
-  .plumber {
-    right: 0;
-    width: 50vw;
-  }
+@media (max-width:1024px){
+  .hero-left{ padding-left:60px; }
+  .plumber{ right:0; width:50vw; }
 }
 
-@media (max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
+@media (max-width:768px){
+  .hero{ grid-template-columns:1fr; }
+  .hero-left{
+    padding:60px 30px 40px;
+    text-align:center;
   }
-
-  .hero-left {
-    padding: 60px 30px 40px;
-    text-align: center;
-  }
-
-  .hero-right {
-    min-height: 400px;
-  }
-
-  .plumber {
-    right: 50%;
-    transform: translateX(50%);
+  .hero-right{ min-height:400px; }
+  .plumber{
+    right:50%;
+    transform:translateX(50%);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
