@@ -96,6 +96,10 @@ section {
   background-image: url(../img/texture-bg.webp);
 }
 
+img {
+  user-select: none;
+}
+
 .container-flex {
   --gap: 8px;
   display: flex;
