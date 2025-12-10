@@ -55,11 +55,24 @@ h1{
   user-select: none;
 }
 
+h2{
+  margin-top:40px;
+  margin-bottom:10px;
+  font-family:var(--script-font);
+  font-size:clamp(5rem,8vw,7.5rem);
+  user-select: none;
+}
+
+h3{
+  font-family:var(--script-font);
+  font-size:clamp(1.5rem,2vw,4.5rem);
+  user-select: none;
+}
+
 p{
   max-width:420px;
   font-size:16px;
   line-height:1.5;
-  margin:30px 0;
   color:var(--primary-clr);
   text-align:left;
 }
@@ -81,6 +94,13 @@ main {
 section {
   height: 100dvh;
   background-image: url(../img/texture-bg.webp);
+}
+
+.container-flex {
+  --gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
 }
 
 /* NAVBAR */
@@ -269,11 +289,10 @@ section {
   .hero.reversed .hero-right { order:1; }
   .hero.reversed .hero-left { 
     order:0;
-    padding:30px 30px 40px;
+    padding:40px 30px 40px;
   }
   .hero-left {
     padding:60px 30px 40px;
-    text-align:center;
   }
   .hero-right{ min-height:400px; }
 
