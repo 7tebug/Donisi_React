@@ -360,6 +360,14 @@ img {
 }
 
 /* ---------- RESPONSIVE ---------- */
+@media (max-width:1024px){
+  .bg-shape {
+    width: 70%;
+  }
+  .bg-shape-2 {
+    width: 150% !important;
+  }
+}
 @media (max-width:768px){
   section {
     height: auto;
