@@ -9,11 +9,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.css" integrity="sha512-kMPqFnKueEwgQFzXLEEl671aHhQqrZLS5IP3HzqdfozaST/EgU+/wkM07JCmXFAt9GO810I//8DBonsJUzGQsQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/resetcss.css"/>
   <link rel="stylesheet" href="assets/style/style.css"/>
 
-  <script src="assets/scripts/main.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js" integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="assets/script/main.js" defer></script>
 </head>
 <body>
 
@@ -80,14 +82,14 @@
           <p class="description">
             Da quasi 60 anni aiutiamo privati e imprese a ottenere impianti efficienti, sicuri e duraturi. Dalla progettazione alla realizzazione, offriamo un servizio completo.
           </p>
-          <div class="two-cols" role="group" aria-label="Statistiche">
-            <div class="col" aria-hidden="false">
-              <span class="big">100%</span>
+          <div class="container-flex number-container" style="--direction: row; --gap: 32px" role="group" aria-label="Statistiche">
+            <div class="container-flex">
+              <span class="odometer percentage">0</span>
               <span class="caption">Clienti soddisfatti</span>
             </div>
 
-            <div class="col" aria-hidden="false">
-              <span class="big">500+</span>
+            <div class="container-flex">
+              <span class="odometer plus">0</span>
               <span class="caption">lavori eseguiti</span>
             </div>
           </div>

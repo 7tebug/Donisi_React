@@ -106,10 +106,12 @@ img {
 }
 
 .container-flex {
+  --direction: column;
   --gap: 8px;
   display: flex;
-  flex-direction: column;
+  flex-direction: var(--direction);
   gap: var(--gap);
+  flex-wrap: wrap;
 }
 
 /* NAVBAR */
@@ -311,38 +313,42 @@ img {
   overflow: hidden;
 } */
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width:1024px){
-  .hero-left{ padding-left:60px; }
-  .hero.reversed .hero-left{ padding-left:0; padding-right:60px;}
-  .bg-shape-2{
-    bottom: -180px;
-    width: 180%
-  }
-
-  .between{
-    margin-bottom: 10px;
-  }
-  .two-cols {
-    flex-direction: column; 
-    gap: 0.2rem; 
-    min-height: auto; 
-    }
-  .col {
-    flex: none; 
-    width: 100%; 
-    max-width: 320px; 
-  }
-  .big { 
-    font-size: 1.0rem;
-  }
-
-  .big { 
-    font-size: 0.5rem;
-  }
-
+/* ------------- STATS -------------*/
+.odometer {
+  display: inline-block;
+  font-size: 2.6rem;
+  line-height: 1;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  font-family: var(--script-font) !important;
+  color: var(--third-clr);
+  position: relative;
+}
+.odometer.plus::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-55%);
+  right: -20px;
+  font-size: 2rem;
+}
+.odometer.percentage::after {
+  content: "%";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px;
+  font-size: 1.7rem;
 }
 
+.caption {
+  font-size: 0.95rem;
+  font-family: var(--script-font);
+  font-weight: 500;
+  color: var(--primary-clr-hover);
+}
+
+/* ---------- RESPONSIVE ---------- */
 @media (max-width:768px){
   section {
     height: auto;
@@ -392,73 +398,8 @@ img {
     margin-bottom: 10px;
   }
 
-  .two-cols {
-    flex-direction: column; 
-    gap: 0.2rem; 
-    min-height: auto; 
-    }
-  .col {
-    flex: none; 
-    width: 100%; 
-    max-width: 320px; 
-  }
-  .big { 
-    font-size: 1.0rem;
-  }
-
-  .big { 
-    font-size: 0.5rem;
+  .odometer { font-size: 2.0rem;}
+  .number-container {
+    margin-bottom: 100px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-  /* container: centro orizzontale e verticale */
-  .two-cols {
-    display: flex;                 /* FLEXBOX */
-    gap: 2rem;                     /* spazio tra le colonne */
-    justify-content: left;       /* allinea orizzontalmente al centro */
-    align-items: left;           /* allinea verticalmente al centro (se l'elemento ha altezza) */
-    margin-bottom: 80px;
-  }
-
-  /* stile comune alle "colonne" */
-  .col {
-    min-width: 120px;
-    flex: 0 0 160px;               /* larghezza fissa preferita, non si allarga oltre */
-    text-align: left;
-    border-radius: 12px;
-  }
-
-  /* testo grande e prominente */
-  .big {
-    display: block;
-    font-size: 2.6rem;             /* dimensione principale */
-    line-height: 1;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    font-family: var(--script-font);
-    color: var(--third-clr);
-  }
-
-  /* etichetta secondaria (opzionale) */
-  .caption {
-    font-size: 0.95rem;
-    font-family: var(--script-font);
-    font-weight: 500;
-    color: var(--primary-clr-hover);
-  }
-
-  /* piccolo adattamento per schermi stretti */
-  @media (max-width: 480px) {
-    .two-cols { flex-direction: column; gap: 0.75rem; min-height: auto; }
-    .col { flex: none; width: 100%; max-width: 320px; }
-    .big { font-size: 2.0rem;}
-  }
