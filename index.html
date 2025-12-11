@@ -9,12 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-default.css" integrity="sha512-kMPqFnKueEwgQFzXLEEl671aHhQqrZLS5IP3HzqdfozaST/EgU+/wkM07JCmXFAt9GO810I//8DBonsJUzGQsQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/resetcss.css"/>
   <link rel="stylesheet" href="assets/style/style.css"/>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js" integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="assets/script/main.js" defer></script>
 </head>
 <body>
@@ -76,21 +74,43 @@
 
     <!-- third section (stats) -->
     <section class="hero between">
-      <div class="hero-left container-flex" style="--gap: 32px">
+      <div class="hero-left container-flex" style="--gap: 40px">
         <h2>L’<span class="title-span">idraulica</span> che funziona<br>per chi non vuole problemi</h2>
-        <div class="container-flex" style="--gap: 24px">
+        <div class="container-flex" style="--gap: 32px">
           <p class="description">
             Da quasi 60 anni aiutiamo privati e imprese a ottenere impianti efficienti, sicuri e duraturi. Dalla progettazione alla realizzazione, offriamo un servizio completo.
           </p>
-          <div class="container-flex number-container" style="--direction: row; --gap: 32px" role="group" aria-label="Statistiche">
+          <div class="container-flex hero-number-container" style="--direction: row; --gap: 32px" role="group" aria-label="Statistiche">
             <div class="container-flex">
-              <span class="odometer percentage">0</span>
+              <div id="numbers-animation-1" class="container-flex animation-numbers-container" style="--direction: row; --gap: 2px">
+                <div class="container-flex flex-center number-container" style="--wrap: nowrap; --gap: 0px;">
+                  <span class="number">0</span><span class="number">1</span><span class="number">2</span><span class="number">3</span><span class="number">4</span><span class="number">5</span><span class="number">6</span><span class="number">7</span><span class="number">8</span><span class="number">9</span><span class="number">0</span><span class="number">1</span>
+                </div>
+                <div class="container-flex flex-center number-container" style="--wrap: nowrap; --gap: 0px;">
+                  <span class="number">0</span><span class="number">1</span><span class="number">2</span><span class="number">3</span><span class="number">4</span><span class="number">5</span><span class="number">6</span><span class="number">7</span><span class="number">8</span><span class="number">9</span><span class="number">0</span>
+                </div>
+                <div class="container-flex flex-center number-container" style="--wrap: nowrap; --gap: 0px;">
+                  <span class="number">0</span><span class="number">1</span><span class="number">2</span><span class="number">3</span><span class="number">4</span><span class="number">5</span><span class="number">6</span><span class="number">7</span><span class="number">8</span><span class="number">9</span><span class="number">0</span>
+                </div>
+                <span class="symbol">%</span>
+              </div>
               <span class="caption">Clienti soddisfatti</span>
             </div>
 
             <div class="container-flex">
-              <span class="odometer plus">0</span>
-              <span class="caption">lavori eseguiti</span>
+              <div id="numbers-animation-2" class="container-flex animation-numbers-container" style="--direction: row; --gap: 2px">
+                <div class="container-flex flex-center number-container" style="--wrap: nowrap; --gap: 0px;">
+                  <span class="number">0</span><span class="number">1</span><span class="number">2</span><span class="number">3</span><span class="number">4</span><span class="number">5</span><span class="number">6</span><span class="number">7</span><span class="number">8</span><span class="number">9</span><span class="number">0</span>
+                </div>
+                <div class="container-flex flex-center number-container" style="--wrap: nowrap; --gap: 0px;">
+                  <span class="number">0</span><span class="number">1</span><span class="number">2</span><span class="number">3</span><span class="number">4</span><span class="number">5</span><span class="number">6</span><span class="number">7</span><span class="number">8</span><span class="number">9</span><span class="number">0</span>
+                </div>
+                <div class="container-flex flex-center number-container" style="--wrap: nowrap; --gap: 0px;">
+                  <span class="number">0</span><span class="number">1</span><span class="number">2</span><span class="number">3</span><span class="number">4</span><span class="number">5</span><span class="number">6</span><span class="number">7</span><span class="number">8</span><span class="number">9</span><span class="number">0</span>
+                </div>
+                <span class="symbol plus">+</span>
+              </div>
+              <span class="caption">Lavori eseguiti</span>
             </div>
           </div>
         </div>

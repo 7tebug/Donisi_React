@@ -108,10 +108,14 @@ img {
 .container-flex {
   --direction: column;
   --gap: 8px;
+  --wrap: wrap;
   display: flex;
   flex-direction: var(--direction);
   gap: var(--gap);
-  flex-wrap: wrap;
+  flex-wrap: var(--wrap);
+}
+.flex-center {
+  align-items: center;
 }
 
 /* NAVBAR */
@@ -266,6 +270,12 @@ img {
   height:auto;
   z-index:1;
 }
+.hero.reversed .bg-shape{
+  left:0;
+  right:auto;
+  transform: scaleX(-1);
+  bottom: -100px;
+}
 
 .bg-shape-2{
   position:absolute;
@@ -274,13 +284,6 @@ img {
   width:100%;
   max-width:none;
   z-index:4;
-}
-
-.hero.reversed .bg-shape{
-  left:0;
-  right:auto;
-  transform: scaleX(-1);
-  bottom: -100px;
 }
 
 /* IMMAGINE PLUMBER */
@@ -314,31 +317,39 @@ img {
 } */
 
 /* ------------- STATS -------------*/
-.odometer {
-  display: inline-block;
-  font-size: 2.6rem;
-  line-height: 1;
+.animation-numbers-container {
+  overflow: hidden;
+  height: 50px;
+  user-select: none;
+}
+.number-container {
+  position: relative;
+  top: 0;
+  height: 50px;
+  text-wrap: nowrap;
+}
+
+.number, .symbol {
   font-weight: 700;
   margin-bottom: 0.25rem;
-  font-family: var(--script-font) !important;
+  font-family: var(--script-font);
   color: var(--third-clr);
-  position: relative;
 }
-.odometer.plus::after {
-  content: "+";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-55%);
-  right: -20px;
+.number {
+  font-size: 2.6rem;
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  margin: 0;
+}
+.symbol {
   font-size: 2rem;
+  position: relative;
+  top: 10px;
+  height: fit-content;
 }
-.odometer.percentage::after {
-  content: "%";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0px;
-  font-size: 1.7rem;
+.symbol.plus {
+  top: 7px;
 }
 
 .caption {
@@ -398,8 +409,8 @@ img {
     margin-bottom: 10px;
   }
 
-  .odometer { font-size: 2.0rem;}
-  .number-container {
+  .number { font-size: 2.0rem;}
+  .hero-number-container {
     margin-bottom: 100px;
   }
 }
