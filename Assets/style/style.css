@@ -367,11 +367,11 @@ img {
   .bg-shape-2 {
     width: 150% !important;
   }
-}
-@media (max-width:768px){
   section {
     height: auto;
   }
+}
+@media (max-width:768px){
   .hero, .hero.reversed{ 
     grid-template-columns:1fr; 
     gap: 16px;
