@@ -97,6 +97,8 @@ main {
 section {
   height: 100dvh;
   background-image: url(../img/texture/texture-bg.webp);
+  background-size: 150%;
+  /*TODO decidere se tenere o meno questa grandezza */
 }
 
 img {
