@@ -44,7 +44,9 @@ body{
   color:var(--secondary-clr);
 }
 
-img{display:block; max-width:100%; height:auto;}
+img {
+  user-select: none;
+}
 
 .title-span{
   color:var(--fourth-clr); font-family:inherit; font-size:inherit;
@@ -60,6 +62,8 @@ h1{
   font-family:var(--script-font);
   font-size:clamp(5rem,8vw,7.5rem);
   user-select: none;
+  text-indent: -7px;
+  text-align: left;
 }
 h2{
   font-family:var(--script-font);
@@ -74,7 +78,8 @@ h3{
 
 p{
   max-width:420px;
-  font-size:16px;
+  /* font-size:16px; */
+  font-size:clamp(1rem,1.3vw,2rem);
   line-height:1.5;
   color:var(--primary-clr);
   text-align:left;
@@ -90,12 +95,9 @@ h6{
   user-select: none;
 }
 
-main {
-  height:100dvh;
-  width: 100vw;
-}
 section {
   height: 100dvh;
+  width: 100vw;
   background-image: url(../img/texture/texture-bg.webp);
   background-size: 150%;
   /*TODO decidere se tenere o meno questa grandezza */
@@ -278,12 +280,18 @@ img {
 }
 
 .bg-shape-2{
-  position:absolute;
-  left:0;
-  bottom: -250px;
   width:100%;
   max-width:none;
-  z-index:4;
+}
+
+.shape-container {
+  position: absolute;
+  left: 0;
+  bottom: -250px;
+  width: 100%;
+  height: fit-content;
+  z-index: 4;
+  overflow: hidden;
 }
 
 /* IMMAGINE PLUMBER */
@@ -410,7 +418,9 @@ img {
   }
   .bg-shape-2{
     width: 200%;
-    bottom: -130px
+  }
+  .shape-container {
+    bottom: -130px;
   }
 
   .between{
@@ -420,5 +430,10 @@ img {
   .number { font-size: 2.0rem;}
   .hero-number-container {
     margin-bottom: 100px;
+  }
+}
+@media (max-width:480px){
+  h1 {
+    text-align: center !important;
   }
 }
