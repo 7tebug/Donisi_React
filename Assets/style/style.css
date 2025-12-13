@@ -96,7 +96,7 @@ h6{
 }
 
 section {
-  height: 100dvh;
+  min-height: 100dvh;
   width: 100vw;
   background-image: url(../img/texture/texture-bg.webp);
   background-size: 150%;
@@ -226,22 +226,24 @@ img {
 
 /* ---------- HERO (layout principale) ---------- */
 .hero{
+  position:relative;
+}
+.hero.grid{
   display:grid;
   grid-template-columns:1fr 1.2fr;
-  position:relative;
   overflow:hidden;
+}
+.hero.reversed {
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
 }
 .between{
   overflow: visible !important;
 }
 .works{
-  padding-top: 250px;
+  padding-top: 300px;
   z-index: 2;
-}
-
-.hero.reversed {
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
+  padding-inline:120px;
 }
 
 /* lato sinistro contenuti */
@@ -367,6 +369,17 @@ img {
   color: var(--primary-clr-hover);
 }
 
+/* ------------- IMAGE ------------ */
+.img-container {
+  width: calc((100% / 3) - (16px * 2));
+}
+.works-img {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:1024px){
   .bg-shape {
@@ -376,11 +389,12 @@ img {
     width: 150% !important;
   }
   section {
+    min-height: auto !important;
     height: auto;
   }
 }
 @media (max-width:768px){
-  .hero, .hero.reversed{ 
+  .hero.grid, .hero.reversed{ 
     grid-template-columns:1fr; 
     gap: 16px;
   }
@@ -392,7 +406,7 @@ img {
       padding: 40px 30px 40px;
   }
   .hero.works {
-    padding: 100px 30px 40px;
+    padding: 150px 30px 40px;
   }
   .hero-left {
     padding: 60px 30px 40px;

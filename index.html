@@ -29,7 +29,7 @@
 
   <main>
     <!-- first section (home) -->
-    <section class="hero">
+    <section class="hero grid">
       <div class="hero-left container-flex" style="--gap: 24px">
         <h1>DONI<span class="title-span">S</span>I</h1>
         <div class="container-flex" style="--gap: 24px">
@@ -50,7 +50,7 @@
     </section>
 
     <!-- second section (setps) -->
-    <section class="hero reversed">
+    <section class="hero grid reversed">
       <div class="hero-right">
         <img src="Assets/img/assets/nuvola.webp" class="bg-shape" alt="">
         <img src="Assets/img/assets/plumber-2.webp" class="plumber-2" alt="">
@@ -73,7 +73,7 @@
     </section>
 
     <!-- third section (stats) -->
-    <section class="hero between">
+    <section class="hero grid between">
       <div class="hero-left container-flex" style="--gap: 40px">
         <h2>L’<span class="title-span">idraulica</span> che funziona<br>per chi non vuole problemi</h2>
         <div class="container-flex" style="--gap: 32px">
@@ -127,20 +127,27 @@
 
     <!-- fourth section (works) -->
     <section class="hero works">
-      <div class="hero-left container-flex" style="--gap: 32px">
+      <div class="container-flex" style="--gap: 32px">
         <h3>I nostri <span class="title-span">lavori</span></h3>
-        <div class="container-flex">
-          <div class="image-container">
+        <div class="container-flex" style="--direction: row; --gap: 16px">
+          <div class="container-flex img-container" style="--gap: 16px">
+            <img src="Assets/img/works/work-01.webp" class="works-img" alt="">
+            <img src="Assets/img/works/work-04.webp" class="works-img" alt="">
           </div>
-          <div class="image-container">
+          <div class="container-flex img-container" style="--gap: 16px">
+            <img src="Assets/img/works/work-02.webp" class="works-img" alt="">
+            <img src="Assets/img/works/work-05.webp" class="works-img" alt="">
           </div>
-          <div class="image-container">
+          <div class="container-flex img-container" style="--gap: 16px">
+            <img src="Assets/img/works/work-03.webp" class="works-img" alt="">
+            <img src="Assets/img/works/work-07.webp" class="works-img" alt="">
           </div>
         </div>
       </div>
     </section>
-
-
+    <!--TODO sistema i nomi delle immagini per far in modo che siano numerati-->
+    <!--TODO aggiusta la larghezza delle immagini in base alla grandezza dello schermo-->
+    <!--TODO sistema css per grandezza schermo dei tablet-->
   </main>
 
 </body>
