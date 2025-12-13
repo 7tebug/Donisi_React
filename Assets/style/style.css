@@ -241,6 +241,7 @@ img {
   overflow: visible !important;
 }
 .works{
+  position: relative;
   padding-top: 300px;
   z-index: 2;
   padding-inline:120px;
@@ -370,8 +371,11 @@ img {
 }
 
 /* ------------- IMAGE ------------ */
-.img-container {
-  width: calc((100% / 3) - (16px * 2));
+.container-grid-img {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+
 }
 .works-img {
   width: 100%;
@@ -388,12 +392,28 @@ img {
   .bg-shape-2 {
     width: 150% !important;
   }
-  section {
-    min-height: auto !important;
-    height: auto;
+  section.hero {
+    min-height: auto;
+    height: 80dvh !important;
+  }
+  .plumber{
+    right: -50px;
+  }
+  .plumber-2{
+    left: 40px;
+  }
+  .plumber-3{
+    right: 80px;
   }
 }
 @media (max-width:768px){
+  section {
+    min-height: 100dvh !important;
+    height: auto !important;
+  }
+  .hero.reversed {
+    min-height: 130dvh !important;
+  }
   .hero.grid, .hero.reversed{ 
     grid-template-columns:1fr; 
     gap: 16px;
@@ -405,7 +425,7 @@ img {
   .hero.reversed .hero-left, .hero.between .hero-left{
       padding: 40px 30px 40px;
   }
-  .hero.works {
+  section.works {
     padding: 150px 30px 40px;
   }
   .hero-left {
@@ -432,6 +452,9 @@ img {
   }
   .bg-shape-2{
     width: 200%;
+  }
+  .hero.reversed .bg-shape, .bg-shape{
+    bottom: 80px;
   }
   .shape-container {
     bottom: -130px;
