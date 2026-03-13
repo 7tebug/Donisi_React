@@ -1,0 +1,5 @@
+{
+  "buildCommand": "yarn --cwd frontend install && yarn --cwd frontend build",
+  "outputDirectory": "frontend/dist",
+  "framework": "vite"
+}
