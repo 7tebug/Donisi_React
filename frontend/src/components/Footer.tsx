@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
               ))}
             </ul>
             <div className="footer-contact-info">
-              <p>Via Example, 12 — Verona (VR)</p>
+              <p>Via Staffali, 37 A - Verona</p>
               <a href="tel:+390000000000">+39 000 000 0000</a>
               <a href="mailto:info@donisi.it">info@donisi.it</a>
             </div>
