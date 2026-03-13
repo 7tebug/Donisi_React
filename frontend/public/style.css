@@ -65,6 +65,15 @@ h1{
   text-indent: -7px;
   text-align: left;
 }
+
+.hero-logo {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  width: clamp(260px, 40vw, 520px);
+  height: auto;
+  user-select: none;
+  display: block;
+}
 h2{
   font-family:var(--script-font);
   font-size:clamp(1.7rem,2.5vw,4.7rem);

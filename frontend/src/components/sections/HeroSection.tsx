@@ -4,9 +4,11 @@ const HeroSection: React.FC = () => {
   return (
     <section className="hero grid" id="home" data-testid="hero-section">
       <div className="hero-left container-flex" style={{ '--gap': '24px' } as React.CSSProperties}>
-        <h1>
-          DONI<span className="title-span">S</span>I
-        </h1>
+        <img
+          src="/img/logo/donisitext.png"
+          alt="Donisi"
+          className="hero-logo"
+        />
         <div className="container-flex" style={{ '--gap': '24px' } as React.CSSProperties}>
           <p>
             Da quasi 60 anni aiutiamo privati e imprese a ottenere impianti efficienti, sicuri e
