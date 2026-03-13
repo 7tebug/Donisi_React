@@ -3,9 +3,9 @@ import React from 'react';
 const Navbar: React.FC = () => {
   return (
     <header className="navbar" data-testid="navbar">
-      <div className="logo">
+      <a href="#home" className="logo" aria-label="Torna su" data-testid="navbar-logo-link">
         <img src="/img/logo/donisi.webp" alt="Donisi logo" className="logo" width="38px" />
-      </div>
+      </a>
 
       <nav className="menu">
         <a href="#storia" data-testid="nav-storia">Servizi</a>
