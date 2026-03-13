@@ -252,6 +252,7 @@ img {
 .works{
   position: relative;
   padding-top: 300px;
+  padding-bottom: 120px;
   z-index: 2;
   padding-inline:120px;
 }
@@ -388,9 +389,18 @@ img {
 }
 .works-img {
   width: 100%;
-  height: auto;
+  object-fit: cover;
   overflow: hidden;
   border-radius: 20px;
+  display: block;
+}
+/* Riga alta: immagini portrait (3/4) */
+.img-container .works-img:first-child {
+  aspect-ratio: 3 / 4;
+}
+/* Riga bassa: immagini landscape (4/3) — furgone + 2 foto uguali */
+.img-container .works-img:last-child {
+  aspect-ratio: 4 / 3;
 }
 
 /* ---------- RESPONSIVE ---------- */
