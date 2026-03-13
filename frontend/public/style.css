@@ -104,9 +104,13 @@ h6{
   user-select: none;
 }
 
+html {
+  overflow-x: hidden;
+}
 section {
   min-height: 100svh;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   background-image: url(/img/texture/texture-bg.webp);
   background-size: 150%;
 }
