@@ -4,6 +4,7 @@ import HeroSection from './components/sections/HeroSection';
 import StepsSection from './components/sections/StepsSection';
 import StatsSection from './components/sections/StatsSection';
 import WorksSection from './components/sections/WorksSection';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
         <StatsSection />
         <WorksSection />
       </main>
+      <Footer />
     </>
   );
 };
