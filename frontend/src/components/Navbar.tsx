@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
       </div>
 
       <nav className="menu">
-        <a href="#storia" data-testid="nav-storia">Storia</a>
+        <a href="#storia" data-testid="nav-storia">Servizi</a>
         <a href="#lavori" data-testid="nav-lavori">Lavori</a>
         <a href="#contatti" className="cta" data-testid="nav-cta">Chiamaci</a>
       </nav>

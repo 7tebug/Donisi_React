@@ -4,6 +4,6 @@ export const workImages: string[] = [
   'work-04.webp',
   'work-02.webp',
   'work-05.webp',
-  'work-03.webp',
-  'work-07.webp',
+  'work-22.webp',
+  'work-29.webp',
 ];
