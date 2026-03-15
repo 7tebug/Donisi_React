@@ -9,4 +9,7 @@ export const workImages: string[] = [
   'work-13.webp',
   'work-14.webp',
   'work-15.webp',
+  'work-19.webp',
+  'work-21.webp',
+  'work-32.webp',
 ];

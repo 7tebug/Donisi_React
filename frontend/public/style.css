@@ -377,12 +377,13 @@ section {
   border-radius: 20px;
   display: block;
 }
-/* Riga 1 (portrait) e riga 3 (portrait) */
+/* Righe portrait (1, 3, 4) */
 .img-container .works-img:nth-child(1),
-.img-container .works-img:nth-child(3) {
+.img-container .works-img:nth-child(3),
+.img-container .works-img:nth-child(4) {
   aspect-ratio: 3 / 4;
 }
-/* Riga 2 (landscape) — furgone + 2 foto uguali */
+/* Riga landscape (2) — furgone */
 .img-container .works-img:nth-child(2) {
   aspect-ratio: 4 / 3;
 }
