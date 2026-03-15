@@ -16,20 +16,21 @@ const Lightbox: React.FC<LightboxProps> = ({ images, index, onClose, onChange })
   // Keyboard navigation
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'Escape')     onClose();
+      if (e.key === 'ArrowLeft')  prev();
       if (e.key === 'ArrowRight') next();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [index]);
 
-  // Prevent body scroll
+  // Blocca scroll del body
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = ''; };
   }, []);
 
+  // Swipe mobile
   const onTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -40,6 +41,14 @@ const Lightbox: React.FC<LightboxProps> = ({ images, index, onClose, onChange })
     touchStartX.current = null;
   };
 
+  // Click sulla foto: metà sinistra → prev, metà destra → next
+  const onImageClick = (e: React.MouseEvent<HTMLImageElement>) => {
+    e.stopPropagation();
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    clickX < rect.width / 2 ? prev() : next();
+  };
+
   return (
     <div
       className="lightbox-overlay"
@@ -48,46 +57,14 @@ const Lightbox: React.FC<LightboxProps> = ({ images, index, onClose, onChange })
       onTouchEnd={onTouchEnd}
       data-testid="lightbox"
     >
-      {/* Immagine — stopPropagation per non chiudere al click sull'img */}
       <img
         src={`/img/works/${images[index]}`}
         alt={`Lavoro ${index + 1}`}
         className="lightbox-img"
-        onClick={(e) => e.stopPropagation()}
+        onClick={onImageClick}
         data-testid="lightbox-image"
       />
 
-      {/* Freccia sinistra */}
-      <button
-        className="lightbox-arrow lightbox-arrow--left"
-        onClick={(e) => { e.stopPropagation(); prev(); }}
-        aria-label="Precedente"
-        data-testid="lightbox-prev"
-      >
-        &#8249;
-      </button>
-
-      {/* Freccia destra */}
-      <button
-        className="lightbox-arrow lightbox-arrow--right"
-        onClick={(e) => { e.stopPropagation(); next(); }}
-        aria-label="Successiva"
-        data-testid="lightbox-next"
-      >
-        &#8250;
-      </button>
-
-      {/* Chiudi */}
-      <button
-        className="lightbox-close"
-        onClick={(e) => { e.stopPropagation(); onClose(); }}
-        aria-label="Chiudi"
-        data-testid="lightbox-close"
-      >
-        &#10005;
-      </button>
-
-      {/* Contatore */}
       <span className="lightbox-counter">{index + 1} / {images.length}</span>
     </div>
   );
