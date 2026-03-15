@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ScrollReveal from '../ScrollReveal';
+import Lightbox from '../Lightbox';
 import { workImages } from '../../data/works';
 
 function chunkIntoColumns<T>(arr: T[], columns: number): T[][] {
@@ -11,7 +12,11 @@ function chunkIntoColumns<T>(arr: T[], columns: number): T[][] {
 const COLUMNS = 3;
 
 const WorksSection: React.FC = () => {
-  const columns = chunkIntoColumns(workImages, COLUMNS);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Mantiene l'indice originale dell'array flat per la navigazione lightbox
+  const indexedImages = workImages.map((img, i) => ({ img, i }));
+  const columns = chunkIntoColumns(indexedImages, COLUMNS);
 
   return (
     <section className="works" id="lavori" data-testid="works-section">
@@ -29,13 +34,14 @@ const WorksSection: React.FC = () => {
                 className="container-flex img-container"
                 style={{ '--gap': '16px' } as React.CSSProperties}
               >
-                {col.map((filename) => (
+                {col.map(({ img, i }) => (
                   <img
-                    key={filename}
-                    src={`/img/works/${filename}`}
+                    key={img}
+                    src={`/img/works/${img}`}
                     className="works-img"
-                    alt={`Lavoro ${filename}`}
-                    data-testid={`work-img-${filename}`}
+                    alt={`Lavoro ${i + 1}`}
+                    data-testid={`work-img-${img}`}
+                    onClick={() => setLightboxIndex(i)}
                   />
                 ))}
               </div>
@@ -43,6 +49,15 @@ const WorksSection: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={workImages}
+          index={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+          onChange={setLightboxIndex}
+        />
+      )}
     </section>
   );
 };
