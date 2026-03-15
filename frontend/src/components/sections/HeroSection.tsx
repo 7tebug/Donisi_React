@@ -1,7 +1,10 @@
 import React from 'react';
 import ScrollReveal from '../ScrollReveal';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const HeroSection: React.FC = () => {
+  const plumberRef = useScrollReveal<HTMLDivElement>(200);
+
   return (
     <section className="hero grid" id="home" data-testid="hero-section">
       <div className="hero-left container-flex" style={{ '--gap': '24px' } as React.CSSProperties}>
@@ -10,6 +13,7 @@ const HeroSection: React.FC = () => {
             DONI<span className="title-span">S</span>I
           </h1>
         </ScrollReveal>
+
         <div className="container-flex" style={{ '--gap': '24px' } as React.CSSProperties}>
           <ScrollReveal direction="up" delay={150}>
             <p>
@@ -26,10 +30,13 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      <ScrollReveal direction="right" delay={200} className="hero-right">
+      {/* Nuvola senza animazione, plumber con reveal */}
+      <div className="hero-right">
         <img src="/img/assets/nuvola.webp" className="bg-shape" alt="" />
-        <img src="/img/assets/plumber-1.webp" className="plumber" alt="" />
-      </ScrollReveal>
+        <div ref={plumberRef} className="reveal reveal-right" style={{ position: 'absolute', inset: 0 }}>
+          <img src="/img/assets/plumber-1.webp" className="plumber" alt="" />
+        </div>
+      </div>
     </section>
   );
 };

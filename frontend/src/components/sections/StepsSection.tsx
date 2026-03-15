@@ -1,14 +1,20 @@
 import React from 'react';
 import ScrollReveal from '../ScrollReveal';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { steps } from '../../data/steps';
 
 const StepsSection: React.FC = () => {
+  const plumberRef = useScrollReveal<HTMLDivElement>(0);
+
   return (
     <section className="hero grid reversed" id="storia" data-testid="steps-section">
-      <ScrollReveal direction="left" delay={0} className="hero-right">
+      {/* Nuvola senza animazione, plumber con reveal */}
+      <div className="hero-right">
         <img src="/img/assets/nuvola.webp" className="bg-shape" alt="" />
-        <img src="/img/assets/plumber-2.webp" className="plumber-2" alt="" />
-      </ScrollReveal>
+        <div ref={plumberRef} className="reveal reveal-left" style={{ position: 'absolute', inset: 0 }}>
+          <img src="/img/assets/plumber-2.webp" className="plumber-2" alt="" />
+        </div>
+      </div>
 
       <div className="hero-left container-flex" style={{ '--gap': '32px' } as React.CSSProperties}>
         {steps.map((step, i) => (
