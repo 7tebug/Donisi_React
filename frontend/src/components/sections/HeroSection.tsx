@@ -6,9 +6,11 @@ const HeroSection: React.FC = () => {
     <section className="hero grid" id="home" data-testid="hero-section">
       <div className="hero-left container-flex" style={{ '--gap': '24px' } as React.CSSProperties}>
         <ScrollReveal direction="left" delay={0}>
-          <h1>
-            DONI<span className="title-span">S</span>I
-          </h1>
+          <img
+            src="/img/logo/DonisiSRLText.svg"
+            alt="Donisi S.r.l."
+            className="hero-logo-svg"
+          />
         </ScrollReveal>
 
         <div className="container-flex" style={{ '--gap': '24px' } as React.CSSProperties}>

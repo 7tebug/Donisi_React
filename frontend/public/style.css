@@ -70,13 +70,15 @@ h1{
   text-align: left;
 }
 
-.hero-logo {
+.hero-logo-svg {
   margin-top: 40px;
   margin-bottom: 10px;
-  width: clamp(260px, 40vw, 520px);
+  width: clamp(280px, 42vw, 580px);
   height: auto;
-  user-select: none;
   display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 h2{
   font-family:var(--script-font);
