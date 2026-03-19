@@ -237,7 +237,7 @@ section {
 .works{
   position: relative;
   padding-top: 300px;
-  padding-bottom: 120px;
+  padding-bottom: 180px;
   z-index: 2;
   padding-inline:120px;
 }
