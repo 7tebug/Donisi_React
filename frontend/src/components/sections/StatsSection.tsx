@@ -47,7 +47,7 @@ const StatsSection: React.FC = () => {
       </div>
 
       <ScrollReveal direction="right" delay={100} className="hero-right">
-        <img src="/img/assets/plumber-3.webp" className="plumber-3" alt="" />
+        <img src="/img/assets/plumber-3.webp" className="plumber-3" alt="" loading="lazy" />
       </ScrollReveal>
 
       <div className="shape-container">

@@ -30,8 +30,8 @@ const HeroSection: React.FC = () => {
       </div>
 
       <ScrollReveal direction="right" delay={200} className="hero-right">
-        <img src="/img/assets/nuvola.webp" className="bg-shape" alt="" />
-        <img src="/img/assets/plumber-1.webp" className="plumber" alt="" />
+        <img src="/img/assets/nuvola.webp" className="bg-shape" alt="" fetchPriority="high" />
+        <img src="/img/assets/plumber-1.webp" className="plumber" alt="" fetchPriority="high" />
       </ScrollReveal>
     </section>
   );

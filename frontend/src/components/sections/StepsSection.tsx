@@ -6,8 +6,8 @@ const StepsSection: React.FC = () => {
   return (
     <section className="hero grid reversed" id="storia" data-testid="steps-section">
       <ScrollReveal direction="left" delay={0} className="hero-right">
-        <img src="/img/assets/nuvola.webp" className="bg-shape" alt="" />
-        <img src="/img/assets/plumber-2.webp" className="plumber-2" alt="" />
+        <img src="/img/assets/nuvola.webp" className="bg-shape" alt="" loading="lazy" />
+        <img src="/img/assets/plumber-2.webp" className="plumber-2" alt="" loading="lazy" />
       </ScrollReveal>
 
       <div className="hero-left container-flex" style={{ '--gap': '32px' } as React.CSSProperties}>

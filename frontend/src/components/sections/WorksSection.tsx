@@ -40,6 +40,8 @@ const WorksSection: React.FC = () => {
                     src={`/img/works/${img}`}
                     className="works-img"
                     alt={`Lavoro ${i + 1}`}
+                    loading="lazy"
+                    decoding="async"
                     data-testid={`work-img-${img}`}
                     onClick={() => setLightboxIndex(i)}
                   />
